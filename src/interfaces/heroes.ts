@@ -3,10 +3,10 @@ export interface IHeroData {
   name: string;
   universe: number;
   details: {
-    fullname: string;
+    fullName: string;
     birthday: string;
     homeland: string;
     height: number;
-    width: number;
+    weight: number;
   };
 }

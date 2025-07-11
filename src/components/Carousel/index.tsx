@@ -1,4 +1,5 @@
 import { IHeroData } from "@/interfaces/heroes";
+import HeroDetails from "../HeroDetails";
 
 interface IProps {
   heroes: IHeroData[];
@@ -6,5 +7,10 @@ interface IProps {
 }
 
 export default function Carousel({ heroes, activeId }: IProps) {
-  return <h1>Componente carrossel: {activeId}</h1>;
+  return (
+    <>
+      <h1>Componente: {activeId}</h1>
+      <HeroDetails data={heroes[0]} />
+    </>
+  );
 }
