@@ -1,12 +1,6 @@
 import Carousel from "@/components/Carousel";
 import { IHeroData } from "@/interfaces/heroes";
 
-interface IProps {
-  params: {
-    id: string;
-  };
-}
-
 async function getHeroesData(): Promise<{ data: IHeroData[] }> {
   const res = await fetch(`${process.env.DOMAIN_ORIGIN}/api/heroes`);
 
@@ -17,8 +11,8 @@ async function getHeroesData(): Promise<{ data: IHeroData[] }> {
   return res.json();
 }
 
-export default async function Hero({ params: { id } }: IProps) {
+export default async function Hero({ params }: { params: { id: string } }) {
   const heroes = await getHeroesData();
 
-  return <Carousel heroes={heroes.data} activeId={id} />;
+  return <Carousel heroes={heroes.data} activeId={params.id} />;
 }

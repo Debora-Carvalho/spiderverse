@@ -10,16 +10,9 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-  ...compat.extends(
-    "next/core-web-vitals",
-    "next/typescript",
-    "prettier"
-  ),
+  ...compat.extends("next/core-web-vitals", "next/typescript", "prettier"),
   {
-    plugins: {
-      "unused-imports": require("eslint-plugin-unused-imports"),
-      "import": require("eslint-plugin-import"),
-    },
+    plugins: ["unused-imports", "import"],
     rules: {
       "unused-imports/no-unused-imports": "error",
       "import/order": ["error", { "newlines-between": "always" }],
@@ -28,4 +21,3 @@ const eslintConfig = [
 ];
 
 export default eslintConfig;
-
